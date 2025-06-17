@@ -7,7 +7,7 @@ let items: { id: number, name: string }[] = [
 ];
 
 export async function GET() {
-    return NextResponse.json(items);
+    return NextResponse.json({ items }, { status: 200 });
 }
 
 export async function POST(request: NextRequest) {
