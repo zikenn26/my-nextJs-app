@@ -30,3 +30,13 @@ export async function PUT(request: NextRequest) {
     items[itemIndex].name = body.name;
     return NextResponse.json({ message: 'Item updated successfully', item: items[itemIndex] });
 }
+
+export async function DELETE(request: NextRequest) {
+    const body = await request.json();
+    const itemIndex = items.findIndex(item => item.id === body.id);
+    if (itemIndex === -1) {
+        return NextResponse.json({ message: 'Item not found' }, { status: 404 });
+    }
+    items.splice(itemIndex, 1);
+    return NextResponse.json({ message: 'Item deleted successfully' });
+}
