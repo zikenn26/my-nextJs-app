@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Dashboard | Item Manager",
+  description: "Manage your items in one place using Next.js.",
+};
+
 export default function DashboardLayout({
   children,
 }: {
