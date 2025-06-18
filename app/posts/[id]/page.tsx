@@ -13,3 +13,4 @@ export default function PostPage({ params }: PostPageProps) {
       {/* Add your post content here */}
     </div>
   );
+}
