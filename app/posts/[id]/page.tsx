@@ -1,21 +1,13 @@
-interface Post {
-  id: number;
-  title: string;
-  body: string;
+interface PostPageProps {
+  params: {
+    id: string;
+  };
 }
-export default async function PostPage({ params }: { params: { id: string } }) {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.id}`
-  );
-  if (!res.ok) {
-    throw new Error("Failed to fetch post");
-  }
-  const post: Post = await res.json();
+
+export default function PostPage({ params }: PostPageProps) {
   return (
     <div>
-      <h2>Post #{post.id}</h2>
-      <h3>{post.title}</h3>
-      <p>{post.body}</p>
+      <h1>Post ID: {params.id}</h1>
     </div>
   );
 }
